@@ -1,0 +1,41 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.coffe-shop {
+    text-align: center;
+    color: black;
+    font-size: 60px;
+    justify-content: space-between;
+  }
+
+p {
+    font-size: 25px;
+  }
+
+.container-fluid{
+    font-size: 18px;
+}
+
+#list{
+  flex-direction: row;
+  display: flex;
+  margin-top: 30px;
+}
+
+#list, #menu{
+  flex-direction: row;
+  display: flex;
+  margin-top: 30px;
+}
+
+.card{
+  margin-right: 15px;
+}
+
+.title{
+  margin-top: 20px;
+}
+

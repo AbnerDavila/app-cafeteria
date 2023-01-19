@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Shop</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="container-fluid">
+
+            <h1 class="coffe-shop">
+                <img src="imgs/istockphoto-1267682472-612x612.jpg" width="150" />
+            </h1>
+            <h1 class="title">Cardápio</h1>
+            <div class="container" id="menu">
+                <div class="card" style="width: 18rem;">
+                    <img src="https://img.itdg.com.br/tdg/images/recipes/000/011/234/349247/349247_original.jpg?w=1200" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">croissant</h5>
+                        <p class="card-text">croissant com presunto e queijo</p>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="https://s2.glbimg.com/9QNO2q8PEeOPLWikHCfMzZl75ZE=/620x466/e.glbimg.com/og/ed/f/original/2020/08/15/pao-de-queijo-mineiro.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">pão de queijo</h5>
+                        <p class="card-text">pão de queijo</p>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="https://www.sabornamesa.com.br/media/k2/items/cache/c501a702ef05e90d163a1eeeb1633357_XL.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">pastel</h5>
+                        <p class="card-text">pastel de carne com queijo</p>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="https://www.receitasnestle.com.br/sites/default/files/srh_recipes/6cf1bb7359f2dca08445c83ff58bf3bf.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">bolo</h5>
+                        <p class="card-text">bolo de chocolate</p>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="https://img.freepik.com/fotos-gratis/pizza-pizza-cheia-de-tomates-salame-e-azeitonas_140725-1200.jpg?w=2000" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">pizza</h5>
+                        <p class="card-text">pizza de calabresa</p>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="https://img.elo7.com.br/product/original/3543F5B/painel-adesivo-capuccino-cafe-expresso-leite-p-comercio-hd-cozinha.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">café expresso</h5>
+                        <p class="card-text">café expresso</p>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="https://www.nespresso.com/ncp/res/uploads/recipes/nespresso-recipes-CAPPUCCINO-BANANA-SESAME-SEEDS.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">cappuccino</h5>
+                        <p class="card-text">cappuccino</p>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="https://i0.wp.com/descobrindoasicilia.com/wp-content/uploads/2021/11/cafe-espresso-italiano.jpg?resize=1024%2C682&ssl=1" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">expresso italiano</h5>
+                        <p class="card-text">expresso italiano</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h1 class="title">Realizar pedido</h1>
+    <form onSubmit="enviar(event)">
+
+        <label>Nome:</label>
+        <input class="form-control" id="nome" placeholder="Digite o seu nome" /><br>
+
+        <label>Produto:</label>
+        <input class="form-control" type="text" id="produto" placeholder="Digite o nome do produto" /><br>
+
+        <label>Quantidade:</label>
+        <input class="form-control" type="text" id="quantidade" placeholder="Digite a quantidade" /><br>
+
+        <label>Observação:</label>
+        <input class="form-control" type="text" id="observacao" placeholder="Deseja alguma observação" /><br>
+
+        <div class="btn-group">
+            <button class="btn btn-success" type="submit">Salvar</button>
+            <button class="btn btn-primary" onClick="limpar()">Limpar</button>
+        </div>
+       
+
+    </form>
+    
+    <h1 class="title">Pedidos</h1>
+    <div id="list" >
+        
+
+
+    </div>
+    <script>
+        let editPedidoId;
+        function editarPedido(id, nome, produto, quantidade, observacao) {
+            editPedidoId = id;
+            document.getElementById("nome").value = nome;
+            document.getElementById("produto").value = produto;
+            document.getElementById("quantidade").value = quantidade;
+            document.getElementById("observacao").value = observacao;
+            console.log(nome, produto, quantidade, observacao);
+        }
+        function limpar() {
+            editPedidoId = undefined;
+            document.getElementById("nome").value = '';
+            document.getElementById("produto").value = '';
+            document.getElementById("quantidade").value = '';
+            document.getElementById("observacao").value = '';
+        }
+        function removerPedido(id) {
+            console.log('~item removido.' + id)
+            fetch('http://localhost:3000/api/pedidos/' + id, { method: 'DELETE' })
+                .then(response => response.text())
+                .then(pedidos => alert("Pedido removido com sucesso!"))
+                .catch(err => console.log(err.message))
+            getPedidos();
+        }
+        function addPedidos(pedidos) {
+            pedidos.forEach(element => {
+                document.getElementById('list').innerHTML += `
+                <div class="card" style="width: 18rem;">
+                    <img src="https://img.freepik.com/fotos-gratis/pizza-pizza-cheia-de-tomates-salame-e-azeitonas_140725-1200.jpg?w=2000" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">${element.nome}</h5>
+                        <p class="card-text">${element.observacao}</p>
+                        <button onClick="removerPedido('${element._id}')" class="btn btn-danger">Remover</button>
+                        <button onClick="editarPedido('${element._id}')" class="btn btn-secundary">Editar</button>
+                    </div>
+                </div>`;
+                /*document.getElementById('list').innerHTML += element.nome + " - R$:"+ element.produto  + `<button onClick="removerPedido('${element._id}')">Remover</button> <button onClick="editarPedido('${element._id}', '${element.nome}', '${element.produto}', '${element.quantidade}', '${element.observacao}')">editarPedido</button><br>`;
+                */
+            });
+        }
+        function getPedidos() {
+            document.getElementById('list').innerHTML = ""
+            fetch('http://localhost:3000/api/pedidos/', { method: 'GET' })
+                .then(response => response.text())
+                .then(pedidos => addPedidos(JSON.parse(pedidos)))
+                .catch(err => console.log(err.message))
+        }
+        getPedidos();
+
+
+        function enviar(event) {
+            event.preventDefault();
+            let editPedidoId = null;
+            const pedido = {
+                nome: document.getElementById("nome").value,
+                produto: document.getElementById("produto").value,
+                quantidade: document.getElementById("quantidade").value,
+                observacao: document.getElementById("observacao").value
+            }
+            fetch(`http://localhost:3000/api/pedidos/${editPedidoId ? editPedidoId : ''}`, {
+                method: editPedidoId ? 'PUT' : 'POST', headers: {
+                    'Content-Type': 'application/json',
+                }, body: JSON.stringify(pedido)
+            })
+                .then(response => response.text())
+                .then(pedidos => {
+                    alert(`${editPedidoId ? 'Produto atualizado!' : ' Produto criado!'}`);
+                    getPedidos();
+                })
+                .catch(err => console.log(err.message))
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
